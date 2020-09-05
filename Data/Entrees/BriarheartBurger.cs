@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Data.Entrees
+namespace vData.Entrees
 {
     public class BriarheartBurger
     {

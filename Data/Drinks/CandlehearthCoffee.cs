@@ -9,7 +9,7 @@ using System.Text;
 using BleakwindBuffet.Data.Enums;
 using System.Linq;
 
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     class CandlehearthCoffee
     {
