@@ -8,10 +8,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace vData.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class representing the Briarheart Burger
+    /// </summary>
     public class BriarheartBurger
     {
+        /// <summary>
+        /// Gets the price (One value)
+        /// </summary>
         public double Price
         {
             get
@@ -20,6 +26,9 @@ namespace vData.Entrees
             }
 
         }
+        /// <summary>
+        /// Gets the calorie count (One value)
+        /// </summary>
         public uint Calories
         {
             get
@@ -28,6 +37,9 @@ namespace vData.Entrees
             }
 
         }
+        /// <summary>
+        /// Adds instructions to the list based on variable ingredients
+        /// </summary>
         public List<String> SpecialInstructions
         {
             get
@@ -35,60 +47,79 @@ namespace vData.Entrees
                 List<String> empty = new List<String>();
                 if (bun == false)
                 {
-                    empty.Append("Hold bun");
+                    empty.Add("Hold bun");
                 }
                 if (ketchup == false)
                 {
-                    empty.Append("Hold ketchup");
+                    empty.Add("Hold ketchup");
                 }
                 if (mustard == false)
                 {
-                    empty.Append("Hold mustard");
+                    empty.Add("Hold mustard");
                 }
                 if (pickle == false)
                 {
-                    empty.Append("Hold pickle");
+                    empty.Add("Hold pickle");
                 }
                 if (cheese == false)
                 {
-                    empty.Append("Hold cheese");
+                    empty.Add("Hold cheese");
                 }
                 return empty;
             }
         }
+        /* Private variable declarations for the burger */
         private bool bun = true;
         private bool ketchup = true;
         private bool mustard = true;
         private bool pickle = true;
         private bool cheese = true;
 
+        /// <summary>
+        /// If the burger gets a bun
+        /// </summary>
         public bool Bun
         {
             get { return bun; }
             set { bun = value; }
         }
+        /// <summary>
+        /// If the burger gets ketchup
+        /// </summary>
         public bool Ketchup
         {
             get { return ketchup; }
             set { ketchup = value; }
         }
+        /// <summary>
+        /// If the burger gets mustard 
+        /// </summary>
         public bool Mustard
         {
             get { return mustard; }
             set { mustard = value; }
         }
+        /// <summary>
+        /// If the burger gets pickles
+        /// </summary>
         public bool Pickle
         {
             get { return pickle; }
             set { pickle = value; }
         }
+        /// <summary>
+        /// If the burger gets cheese
+        /// </summary>
         public bool Cheese
         {
             get { return cheese; }
             set { cheese = value; }
         }
 
-
+        /// <summary>
+        /// Overrides the ToString method to return the name of the entree
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Briarheart Burger";

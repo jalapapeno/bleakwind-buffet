@@ -7,6 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -15,41 +16,61 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
+            var CC = new CandlehearthCoffee();
+            Assert.False(CC.Ice);
         }
 
         [Fact]
         public void ShouldNotBeDecafByDefault()
         {
+            var CC = new CandlehearthCoffee();
+            Assert.False(CC.Decaf);
         }
 
         [Fact]
         public void ShouldNotHaveRoomForCreamByDefault()
         {
+            var CC = new CandlehearthCoffee();
+            Assert.False(CC.RoomForCream);
         }
 
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            var CC = new CandlehearthCoffee();
+            Assert.Equal(Size.Small, CC.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetIce()
         {
+            var CC = new CandlehearthCoffee();
+            CC.Ice = true;
+            Assert.True(CC.Ice);
         }
 
         [Fact]
         public void ShouldBeAbleToSetDecaf()
         {
+            var CC = new CandlehearthCoffee();
+            CC.Decaf = true;
+            Assert.True(CC.Decaf);
         }
 
         [Fact]
         public void ShouldBeAbleToSetRoomForCream()
         {
+            var CC = new CandlehearthCoffee();
+            CC.RoomForCream = true;
+            Assert.True(CC.RoomForCream);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            var CC = new CandlehearthCoffee();
+            CC.Size = Size.Medium;
+            Assert.Equal(Size.Medium, CC.Size);
         }
 
         [Theory]
@@ -58,6 +79,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 1.75)]
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
+            var CC = new CandlehearthCoffee()
+            {
+                Size = size
+            };
+            Assert.Equal(price, CC.Price);
         }
 
         [Theory]
@@ -66,6 +92,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 20)]
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
+            var CC = new CandlehearthCoffee()
+            {
+                Size = size
+            };
+            Assert.Equal(cal, CC.Calories);
         }
 
         [Theory]
@@ -75,6 +106,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, false)]
         public void ShouldHaveCorrectSpecialInstructions(bool includeIce, bool includeCream)
         {
+            var CC = new CandlehearthCoffee()
+            {
+                Ice = includeIce,
+                RoomForCream = includeCream
+            };
+            if (includeIce) Assert.Contains("Add ice", CC.SpecialInstructions);
+            if (includeCream) Assert.Contains("Add cream", CC.SpecialInstructions);
+            if (!includeIce && !includeCream) Assert.Empty(CC.SpecialInstructions);
         }
 
         [Theory]
@@ -86,6 +125,26 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
         public void ShouldReturnCorrectToStringBasedOnSize(bool decaf, Size size, string name)
         {
+            string expectedSizeName = "Small";
+            string expectedOutput;
+            var CC = new CandlehearthCoffee()
+            {
+                Size = size,
+                Decaf = decaf
+            };
+
+            if (size == Size.Medium) expectedSizeName = "Medium";
+            if (size == Size.Large) expectedSizeName = "Large";
+            if(decaf)
+            {
+                expectedOutput = expectedSizeName + " Decaf" + " Candlehearth Coffee";
+            }
+            else
+            {
+                expectedOutput = expectedSizeName + " Candlehearth Coffee";
+            }
+
+            Assert.Equal(expectedOutput, name);
         }
     }
 }

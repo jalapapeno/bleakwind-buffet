@@ -11,8 +11,14 @@ using System.Linq;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    class CandlehearthCoffee
+    /// <summary>
+    /// Class representing a cup of Candlehearth Coffee
+    /// </summary>
+    public class CandlehearthCoffee
     {
+        /// <summary>
+        /// Sets the price based on the size
+        /// </summary>
         public double Price
         {
             get
@@ -30,6 +36,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
+        /// <summary>
+        /// Sets the calorie count based on the size
+        /// </summary>
         public uint Calories
         {
             get
@@ -47,6 +56,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
+        /// <summary>
+        /// Adds instructions to the list based on variable ingredients
+        /// </summary>
         public List<String> SpecialInstructions
         {
             get
@@ -54,42 +66,62 @@ namespace BleakwindBuffet.Data.Drinks
                 List<String> empty = new List<String>();
                 if (ice == true)
                 {
-                    empty.Append("Add ice");
+                    empty.Add("Add ice");
                 }
-                if (RoomForCream == true)
+                if (RoomForCream)
                 {
-                    empty.Append("Add cream");
+                    empty.Add("Add cream");
                 }
                 return empty;
             }
         }
-        public bool ice = false;
-        public bool roomForCream = false;
-        public bool decaf = false;
-        public Size size = Size.Small;
+        /* Private variable declarations for the coffee */
+        private bool ice = false;
+        private bool roomForCream = false;
+        private bool decaf = false;
+        private Size size = Size.Small;
+        /// <summary>
+        /// Sets the size
+        /// </summary>
         public Size Size
         {
             get { return size; }
             set { size = value; }
         }
+        /// <summary>
+        /// If the drink gets ice
+        /// </summary>
         public bool Ice
         {
             get { return ice; }
             set { ice = value; }
         }
+        /// <summary>
+        /// If the coffee is decaf or not
+        /// </summary>
         public bool Decaf
         {
             get { return decaf; }
             set { decaf = value; }
         }
+        /// <summary>
+        /// If the customer wants cream
+        /// </summary>
         public bool RoomForCream
         {
             get { return roomForCream; }
             set { roomForCream = value; }
         }
+        /// <summary>
+        /// Overrides the ToString method to produce the size and name of the drink
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return size.ToString() + "Candlehearth Coffee";
+            if(decaf)
+                return size.ToString() + " decaf" + " Candlehearth Coffee";
+            else
+                return size.ToString() + " Candlehearth Coffee";
         }
     }
 }

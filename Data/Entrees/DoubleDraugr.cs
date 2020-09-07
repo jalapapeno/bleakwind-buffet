@@ -9,8 +9,14 @@ using System.Text;
 using System.Linq;
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class used to represent the Double Draugr sandwich
+    /// </summary>
     public class DoubleDraugr
     {
+        /// <summary>
+        /// Gets the price (One value)
+        /// </summary>
         public double Price
         {
             get
@@ -19,6 +25,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
 
         }
+        /// <summary>
+        /// Gets the calorie count (One value)
+        /// </summary>
         public uint Calories
         {
             get
@@ -27,6 +36,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
 
         }
+        /// <summary>
+        /// Adds instructions to the list based on variable ingredients
+        /// </summary>
         public List<String> SpecialInstructions
         {
             get
@@ -34,39 +46,40 @@ namespace BleakwindBuffet.Data.Entrees
                 List<String> empty = new List<String>();
                 if (bun == false)
                 {
-                    empty.Append("Hold bun");
+                    empty.Add("Hold bun");
                 }
                 if (ketchup == false)
                 {
-                    empty.Append("Hold ketchup");
+                    empty.Add("Hold ketchup");
                 }
                 if (mustard == false)
                 {
-                    empty.Append("Hold mustard");
+                    empty.Add("Hold mustard");
                 }
                 if (pickle == false)
                 {
-                    empty.Append("Hold pickle");
+                    empty.Add("Hold pickle");
                 }
                 if (cheese == false)
                 {
-                    empty.Append("Hold cheese");
+                    empty.Add("Hold cheese");
                 }
                 if (tomato == false)
                 {
-                    empty.Append("Hold tomato");
+                    empty.Add("Hold tomato");
                 }
                 if (lettuce == false)
                 {
-                    empty.Append("Hold lettuce");
+                    empty.Add("Hold lettuce");
                 }
                 if (mayo == false)
                 {
-                    empty.Append("Hold mayo");
+                    empty.Add("Hold mayo");
                 }
                 return empty;
             }
         }
+        /* Priate variable declarations for the sandwich */
         private bool bun = true;
         private bool ketchup = true;
         private bool mustard = true;
@@ -75,47 +88,76 @@ namespace BleakwindBuffet.Data.Entrees
         private bool tomato = true;
         private bool lettuce = true;
         private bool mayo = true;
+
+        /// <summary>
+        /// If the sandwich gets a bun
+        /// </summary>
         public bool Bun
         {
             get { return bun; }
             set { bun = value; }
         }
+        /// <summary>
+        /// If the sandwich gets ketchup
+        /// </summary>
         public bool Ketchup
         {
             get { return ketchup; }
             set { ketchup = value; }
         }
+        /// <summary>
+        /// If the sandwich gets mustard
+        /// </summary>
         public bool Mustard
         {
             get { return mustard; }
             set { mustard = value; }
         }
+        /// <summary>
+        /// If the sandwich gets pickles
+        /// </summary>
         public bool Pickle
         {
             get { return pickle; }
             set { pickle = value; }
         }
+        /// <summary>
+        /// If the sandwich gets cheese
+        /// </summary>
         public bool Cheese
         {
             get { return cheese; }
             set { cheese = value; }
         }
+        /// <summary>
+        /// If the sandwich gets tomato
+        /// </summary>
         public bool Tomato
         {
             get { return tomato; }
             set { tomato = value; }
         }
+        /// <summary>
+        /// If the sandwich gets lettuce
+        /// </summary>
         public bool Lettuce
         {
             get { return lettuce; }
             set { lettuce = value; }
         }
+        /// <summary>
+        /// If the sandwich gets mayo
+        /// </summary>
         public bool Mayo
         {
             get { return mayo; }
             set { mayo = value; }
         }
 
+        /// <summary>
+        /// Overrides the ToString method to return the name of the entree
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Double Draugr";

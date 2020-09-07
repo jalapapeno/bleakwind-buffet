@@ -10,8 +10,14 @@ using System.Linq;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class representing the Smokehouse Skeleton dish
+    /// </summary>
     public class SmokehouseSkeleton
     {
+        /// <summary>
+        /// Gets the price (One value)
+        /// </summary>
         public double Price
         {
             get
@@ -20,6 +26,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
 
         }
+        /// <summary>
+        /// Gets the calorie count (One value)
+        /// </summary>
         public uint Calories
         {
             get
@@ -28,6 +37,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
 
         }
+        /// <summary>
+        /// Adds instructions to the list based on variable ingredients
+        /// </summary>
         public List<String> SpecialInstructions
         {
             get
@@ -35,49 +47,67 @@ namespace BleakwindBuffet.Data.Entrees
                 List<String> empty = new List<String>();
                 if (sausageLink == false)
                 {
-                    empty.Append("Hold sausage");
+                    empty.Add("Hold sausage");
                 }
                 if (egg == false)
                 {
-                    empty.Append("Hold eggs");
+                    empty.Add("Hold eggs");
                 }
                 if (hashBrowns == false)
                 {
-                    empty.Append("Hold hash browns");
+                    empty.Add("Hold hash browns");
                 }
                 if (pancake == false)
                 {
-                    empty.Append("Hold pancakes");
+                    empty.Add("Hold pancakes");
                 }
                 
                 return empty;
             }
         }
+
+        /* Private variable declarations for the dish */
         private bool sausageLink = true;
         private bool egg = true;
         private bool hashBrowns = true;
         private bool pancake = true;
+        /// <summary>
+        /// If the dish includes sausage links
+        /// </summary>
         public bool SausageLink
         {
             get { return sausageLink; }
             set { sausageLink = value; }
         }
+        /// <summary>
+        /// If the dish includes eggs
+        /// </summary>
         public bool Egg
         {
             get { return egg; }
             set { egg = value; }
         }
+        /// <summary>
+        /// If the dish includes hashbrowns
+        /// </summary>
         public bool HashBrowns
         {
             get { return hashBrowns; }
             set { hashBrowns= value; }
         }
+        /// <summary>
+        /// If the dish includes pancakes
+        /// </summary>
         public bool Pancake
         {
             get { return pancake; }
             set { pancake = value; }
         }
 
+        /// <summary>
+        /// Overrides the ToString method to return the name of the entree 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Smokehouse Skeleton";

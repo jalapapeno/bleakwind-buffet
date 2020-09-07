@@ -11,8 +11,14 @@ using System.Linq;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    class WarriorWater
+    /// <summary>
+    /// Class representing a glass of Warrior Water
+    /// </summary>
+    public class WarriorWater
     {
+        /// <summary>
+        /// Sets the price (Always 0)
+        /// </summary>
         public double Price
         {
             get
@@ -21,6 +27,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
+        /// <summary>
+        /// Sets the calorie count based on size (Always zero)
+        /// </summary>
         public uint Calories
         {
             get
@@ -38,6 +47,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
+        /// <summary>
+        /// Adds instructions to the list based on variable ingredients
+        /// </summary>
         public List<String> SpecialInstructions
         {
             get
@@ -45,33 +57,47 @@ namespace BleakwindBuffet.Data.Drinks
                 List<String> empty = new List<String>();
                 if (ice == false)
                 {
-                    empty.Append("Hold ice");
+                    empty.Add("Hold ice");
                 }
                 if (lemon == true)
                 {
-                    empty.Append("Add lemon");
+                    empty.Add("Add lemon");
                 }
                 return empty;
             }
         }
-        public bool ice = true;
-        public bool lemon = false;
-        public Size size = Size.Small;
+        /* Private variable declarations for the water */
+        private bool ice = true;
+        private bool lemon = false;
+        private Size size = Size.Small;
+        /// <summary>
+        /// Sets the size
+        /// </summary>
         public Size Size
         {
             get { return size; }
             set { size = value; }
         }
+        /// <summary>
+        /// If the drink needs ice
+        /// </summary>
         public bool Ice
         {
             get { return ice; }
             set { ice = value; }
         }
+        /// <summary>
+        /// If the drink needs lemon
+        /// </summary>
         public bool Lemon
         {
             get { return lemon; }
             set { lemon = value; }
         }
+        /// <summary>
+        /// Overrides the ToString method to return the size and name of the drink
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return size.ToString() + "Warrior Water";

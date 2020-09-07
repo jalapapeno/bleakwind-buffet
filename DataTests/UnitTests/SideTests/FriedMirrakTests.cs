@@ -6,6 +6,7 @@
 using Xunit;
 
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
@@ -15,16 +16,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            var FM = new FriedMiraak();
+            Assert.True(FM.Size == Size.Small);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            var FM = new FriedMiraak();
+            FM.Size = Size.Medium;
+            Assert.True(FM.Size == Size.Medium);
         }
 
         [Fact]
         public void ShouldReturnCorrectSpecialInstructions()
         {
+            var FM = new FriedMiraak();
+            Assert.Empty(FM.SpecialInstructions);
         }
 
         [Theory]
@@ -33,6 +41,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 2.88)]
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
+            var FM = new FriedMiraak()
+            {
+                Size = size
+            };
+            Assert.Equal(price, FM.Price);
         }
 
         [Theory]
@@ -41,6 +54,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 306)]
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
+            var FM = new FriedMiraak()
+            {
+                Size = size
+            };
+            Assert.Equal(calories, FM.Calories);
         }
 
         [Theory]
@@ -49,6 +67,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Fried Miraak")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
+            string expectedSizeName = "Small";
+            var FM = new FriedMiraak()
+            {
+                Size = size
+            };
+
+            if (size == Size.Medium) expectedSizeName = "Medium";
+            if (size == Size.Large) expectedSizeName = "Large";
+
+            string expectedOutput = expectedSizeName + " Fried Miraak";
+
+            Assert.Equal(expectedOutput, name);
         }
     }
+    
 }

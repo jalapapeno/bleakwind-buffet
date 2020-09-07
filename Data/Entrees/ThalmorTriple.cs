@@ -10,10 +10,36 @@ using System.Linq;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class representing the Thalmor Triple burger
+    /// </summary>
     public class ThalmorTriple
     {
-        public double Price = 8.32;
-        public uint Calories = 943;
+        /// <summary>
+        /// Gets the price (One value)
+        /// </summary>
+        public double Price
+        {
+            get
+            {
+                return 8.32;
+            }
+
+        }
+        /// <summary>
+        /// Gets the calorie count (One value)
+        /// </summary>
+        public uint Calories
+        {
+            get
+            {
+                return 943;
+            }
+
+        }
+        /// <summary>
+        /// Adds instructions to the list based on variable ingredients
+        /// </summary>
         public List<String> SpecialInstructions
         {
             get
@@ -21,47 +47,49 @@ namespace BleakwindBuffet.Data.Entrees
                 List<String> empty = new List<String>();
                 if (bun == false)
                 {
-                    empty.Append("Hold bun");
+                    empty.Add("Hold bun");
                 }
                 if (ketchup == false)
                 {
-                    empty.Append("Hold ketchup");
+                    empty.Add("Hold ketchup");
                 }
                 if (mustard == false)
                 {
-                    empty.Append("Hold mustard");
+                    empty.Add("Hold mustard");
                 }
                 if (pickle == false)
                 {
-                    empty.Append("Hold pickle");
+                    empty.Add("Hold pickle");
                 }
                 if (cheese == false)
                 {
-                    empty.Append("Hold cheese");
+                    empty.Add("Hold cheese");
                 }
                 if (tomato == false)
                 {
-                    empty.Append("Hold tomato");
+                    empty.Add("Hold tomato");
                 }
                 if (lettuce == false)
                 {
-                    empty.Append("Hold lettuce");
+                    empty.Add("Hold lettuce");
                 }
                 if (mayo == false)
                 {
-                    empty.Append("Hold mayo");
+                    empty.Add("Hold mayo");
                 }
                 if (bacon == false)
                 {
-                    empty.Append("Hold bacon");
+                    empty.Add("Hold bacon");
                 }
                 if (egg == false)
                 {
-                    empty.Append("Hold egg");
+                    empty.Add("Hold egg");
                 }
                 return empty;
             }
         }
+
+        /* Private variable declarations for the burger */
         private bool bun = true;
         private bool ketchup = true;
         private bool mustard = true;
@@ -72,57 +100,92 @@ namespace BleakwindBuffet.Data.Entrees
         private bool mayo = true;
         private bool bacon = true;
         private bool egg = true;
+
+        /// <summary>
+        /// If the burger gets a bun
+        /// </summary>
         public bool Bun
         {
             get { return bun; }
             set { bun = value; }
         }
+        /// <summary>
+        /// If the burger gets ketchup
+        /// </summary>
         public bool Ketchup
         {
             get { return ketchup; }
             set { ketchup = value; }
         }
+        /// <summary>
+        /// If the burger gets mustard
+        /// </summary>
         public bool Mustard
         {
             get { return mustard; }
             set { mustard = value; }
         }
+        /// <summary>
+        /// If the burger gets pickles
+        /// </summary>
         public bool Pickle
         {
             get { return pickle; }
             set { pickle = value; }
         }
+        /// <summary>
+        /// If the burger gets cheese
+        /// </summary>
         public bool Cheese
         {
             get { return cheese; }
             set { cheese = value; }
         }
+        /// <summary>
+        /// If the burger gets tomato
+        /// </summary>
         public bool Tomato
         {
             get { return tomato; }
             set { tomato = value; }
         }
+        /// <summary>
+        /// If the burger gets lettuce
+        /// </summary>
         public bool Lettuce
         {
             get { return lettuce; }
             set { lettuce = value; }
         }
+        /// <summary>
+        /// If the burger gets mayo
+        /// </summary>
         public bool Mayo
         {
             get { return mayo; }
             set { mayo = value; }
         }
+        /// <summary>
+        /// If the burger gets bacon
+        /// </summary>
         public bool Bacon
         {
             get { return bacon; }
             set { bacon = value; }
         }
+        /// <summary>
+        /// If the burger gets an egg
+        /// </summary>
         public bool Egg
         {
             get { return egg; }
             set { egg = value; }
         }
 
+        /// <summary>
+        /// Overrides the ToString method to return the name of the entree
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Thalmor Triple";

@@ -10,8 +10,14 @@ using System.Linq;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class representing the Thugs TBone entree
+    /// </summary>
     public class ThugsTBone
     {
+        /// <summary>
+        /// Gets the price (One value)
+        /// </summary>
         public double Price
         {
             get
@@ -20,6 +26,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
 
         }
+        /// <summary>
+        /// Gets the calorie count (One value)
+        /// </summary>
         public uint Calories
         {
             get
@@ -28,8 +37,21 @@ namespace BleakwindBuffet.Data.Entrees
             }
 
         }
-        public List<String> SpecialInstructions;
+        /// <summary>
+        /// Returns a blank list, as there are no variable ingredients
+        /// </summary>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                return new List<String>();
+            }
+        }
 
+        /// <summary>
+        /// Overrides the ToString method to return the name of the entree
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Thugs T-Bone";

@@ -11,8 +11,14 @@ using System.Linq;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    class MarkarthMilk
+    /// <summary>
+    /// Class representing a glass of Markarth Milk
+    /// </summary>
+    public class MarkarthMilk
     {
+        /// <summary>
+        /// Sets the price based on the size of the drink
+        /// </summary>
         public double Price
         {
             get
@@ -30,6 +36,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
+        /// <summary>
+        /// Sets the calories based on the size of the drink
+        /// </summary>
         public uint Calories
         {
             get
@@ -47,6 +56,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
+        /// <summary>
+        /// Adds instructions to the list based on variable ingredients
+        /// </summary>
         public List<String> SpecialInstructions
         {
             get
@@ -54,25 +66,35 @@ namespace BleakwindBuffet.Data.Drinks
                 List<String> empty = new List<String>();
                 if (ice == true)
                 {
-                    empty.Append("Add ice");
+                    empty.Add("Add ice");
                 }
 
                 return empty;
             }
         }
-        public bool ice = false;
-        public Size size = Size.Small;
+        /* Private variable declaration for the milk */
+        private bool ice = false;
+        private Size size = Size.Small;
+        /// <summary>
+        /// Sets the size of the drink
+        /// </summary>
         public Size Size
         {
             get { return size; }
             set { size = value; }
         }
+        /// <summary>
+        /// If the drink needs ice
+        /// </summary>
         public bool Ice
         {
             get { return ice;  }
             set { ice = value;  }
         }
-
+        /// <summary>
+        /// Overrides the ToString method to return the size and name of the drink
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return size.ToString() +"Markarth Milk";

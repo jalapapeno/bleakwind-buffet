@@ -11,8 +11,14 @@ using System.Linq;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    class ArentinoAppleJuice
+    /// <summary>
+    /// Class for representing ArentinoAppleJuice
+    /// </summary>
+    public class ArentinoAppleJuice
     {
+        /// <summary>
+        /// Sets the price based on the size
+        /// </summary>
         public double Price
         {
             get
@@ -30,6 +36,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
+        /// <summary>
+        /// Sets the calorie count based on the size
+        /// </summary>
         public uint Calories
         {
             get
@@ -47,6 +56,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
 
         }
+        /// <summary>
+        /// Sets the special instructions based on variable ingredients
+        /// </summary>
         public List<String> SpecialInstructions
         {
             get
@@ -54,25 +66,37 @@ namespace BleakwindBuffet.Data.Drinks
                 List<String> empty = new List<String>();
                 if (ice == true)
                 {
-                    empty.Append("Add ice");
+                    empty.Add("Add ice");
                 }
 
                 return empty;
             }
         }
-        public bool ice = false;
-        public Size size = Size.Small;
+
+        /* Private variable declaration for the apple juice */
+        private bool ice = false;
+        private Size size = Size.Small;
+
+        /// <summary>
+        /// What size of apple juice the customer wants
+        /// </summary>
         public Size Size
         {
             get { return size; }
             set { size = value; }
         }
+        /// <summary>
+        /// If this drink is served with ice
+        /// </summary>
         public bool Ice
         {
             get { return ice; }
             set { ice = value; }
         }
-
+        /// <summary>
+        /// Returns the size and name of the drink when the ToString method is called
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return size.ToString() + "Arentino Apple Juice";

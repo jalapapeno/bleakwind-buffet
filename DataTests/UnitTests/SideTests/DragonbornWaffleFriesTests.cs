@@ -6,6 +6,8 @@
 using Xunit;
 
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Sides;
+
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
@@ -15,16 +17,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            var DWF = new DragonbornWaffleFries();
+            Assert.Equal(Size.Small, DWF.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            var DWF = new DragonbornWaffleFries();
+            DWF.Size = Size.Medium;
+            Assert.Equal(Size.Medium, DWF.Size);
         }
 
         [Fact]
         public void ShouldReturnCorrectSpecialInstructions()
         {
+            var DWF = new DragonbornWaffleFries();
+            Assert.Empty(DWF.SpecialInstructions);
         }
 
         [Theory]
@@ -33,6 +42,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 0.96)]
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
+            var DWF = new DragonbornWaffleFries()
+            {
+                Size = size
+            };
+            Assert.Equal(price, DWF.Price);
         }
 
         [Theory]
@@ -41,6 +55,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 100)]
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
+            var DWF = new DragonbornWaffleFries()
+            {
+                Size = size
+            };
+            Assert.Equal(calories, DWF.Calories);
         }
 
         [Theory]
@@ -49,6 +68,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Dragonborn Waffle Fries")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
+            string expectedSizeName = "Small";
+            var DWF = new DragonbornWaffleFries()
+            {
+                Size = size
+            };
+
+            if (size == Size.Medium) expectedSizeName = "Medium";
+            if (size == Size.Large) expectedSizeName = "Large";
+
+            string expectedOutput = expectedSizeName + " Dragonborn Waffle Fries";
+
+            Assert.Equal(expectedOutput, name);
         }
     }
 }

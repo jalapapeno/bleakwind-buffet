@@ -11,8 +11,14 @@ using System.Linq;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class representing the Garden Orc Omelette
+    /// </summary>
     public class GardenOrcOmelette
     {
+        /// <summary>
+        /// Sets the price (One value)
+        /// </summary>
         public double Price
         {
             get
@@ -21,6 +27,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
 
         }
+        /// <summary>
+        /// Gets the calorie count (One value)
+        /// </summary>
         public uint Calories
         {
             get
@@ -29,6 +38,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
 
         }
+        /// <summary>
+        /// Adds instructions to the list based on variable ingredients
+        /// </summary>
         public List<String> SpecialInstructions
         {
             get
@@ -36,49 +48,68 @@ namespace BleakwindBuffet.Data.Entrees
                 List<String> empty = new List<String>();
                 if (broccoli == false)
                 {
-                    empty.Append("Hold broccoli");
+                    empty.Add("Hold broccoli");
                 }
                 if (mushrooms== false)
                 {
-                    empty.Append("Hold mushrooms");
+                    empty.Add("Hold mushrooms");
                 }
                 if (tomato == false)
                 {
-                    empty.Append("Hold tomato");
+                    empty.Add("Hold tomato");
                 }
                 if (cheddar == false)
                 {
-                    empty.Append("Hold cheddar");
+                    empty.Add("Hold cheddar");
                 }
                 
                 return empty;
             }
         }
+
+        /* Private variable declaration for the omelette */
         private bool broccoli = true;
         private bool mushrooms = true;
         private bool tomato = true;
         private bool cheddar = true;
+
+        /// <summary>
+        /// If broccoli is included
+        /// </summary>
         public bool Broccoli
         {
             get { return broccoli; }
             set { broccoli = value; }
         }
+        /// <summary>
+        /// If mushrooms are included
+        /// </summary>
         public bool Mushrooms
         {
             get { return mushrooms; }
             set { mushrooms = value; }
         }
+        /// <summary>
+        /// If tomatoes are included
+        /// </summary>
         public bool Tomato
         {
             get { return tomato; }
             set { tomato = value; }
         }
+        /// <summary>
+        /// If cheddar is included
+        /// </summary>
         public bool Cheddar
         {
             get { return cheddar; }
             set { cheddar = value; }
         }
 
+        /// <summary>
+        /// Overrides the ToString method to return the name of the entree
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Garden Orc Omelette";

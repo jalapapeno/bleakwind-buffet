@@ -6,6 +6,7 @@
 using Xunit;
 
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -15,61 +16,90 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
+            var BB = new BriarheartBurger();
+            Assert.True(BB.Bun);
         }
 
         [Fact]
         public void ShouldIncludeKetchupByDefault()
         {
+            var BB = new BriarheartBurger();
+            Assert.True(BB.Ketchup);
         }
 
         [Fact]
         public void ShouldIncludeMustardByDefault()
         {
+            var BB = new BriarheartBurger();
+            Assert.True(BB.Mustard);
         }
 
         [Fact]
         public void ShouldIncludePickleByDefault()
         {
+            var BB = new BriarheartBurger();
+            Assert.True(BB.Pickle);
         }
 
         [Fact]
         public void ShouldIncludeCheeseByDefault()
         {
+            var BB = new BriarheartBurger();
+            Assert.True(BB.Cheese);
         }
 
         [Fact]
         public void ShouldBeAbleToSetBun()
         {
+            var BB = new BriarheartBurger();
+            BB.Bun = false;
+            Assert.False(BB.Bun);
         }
 
         [Fact]
         public void ShouldBeAbleToSetKetchup()
         {
+            var BB = new BriarheartBurger();
+            BB.Ketchup = false;
+            Assert.False(BB.Ketchup);
         }
 
         [Fact]
         public void ShouldBeAbleToSetMustard()
         {
+            var BB = new BriarheartBurger();
+            BB.Mustard = false;
+            Assert.False(BB.Mustard);
         }
 
         [Fact]
         public void ShouldBeAbleToSetPickle()
         {
+            var BB = new BriarheartBurger();
+            BB.Pickle = false;
+            Assert.False(BB.Pickle);
         }
 
         [Fact]
         public void ShouldBeAbleToSetCheese()
         {
+            var BB = new BriarheartBurger();
+            BB.Cheese = false;
+            Assert.False(BB.Cheese);
         }
 
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
+            var BB = new BriarheartBurger();
+            Assert.Equal(6.32, BB.Price);
         }
 
         [Fact]
         public void ShouldReturnCorrectCalories()
         {
+            var BB = new BriarheartBurger();
+            Assert.True(BB.Calories == 743);
         }
 
         [Theory]
@@ -78,11 +108,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectSpecialInstructions(bool includeBun, bool includeKetchup, bool includeMustard,
                                                                     bool includePickle, bool includeCheese)
         {
+            var BB = new BriarheartBurger()
+            {
+                Bun = includeBun,
+                Ketchup = includeKetchup,
+                Mustard = includeMustard,
+                Pickle = includePickle,
+                Cheese = includeCheese
+            };
+            if (!includeBun) Assert.Contains("Hold bun", BB.SpecialInstructions);
+            if (!includeKetchup) Assert.Contains("Hold ketchup", BB.SpecialInstructions);
+            if (!includeMustard) Assert.Contains("Hold mustard", BB.SpecialInstructions);
+            if (!includePickle) Assert.Contains("Hold pickle", BB.SpecialInstructions);
+            if (!includeCheese) Assert.Contains("Hold cheese", BB.SpecialInstructions);
+            if (includeBun && includeKetchup && includeMustard && includePickle && includeCheese) Assert.Empty(BB.SpecialInstructions);
         }
 
         [Fact]
         public void ShouldReturnCorrectToString()
         {
+            var BB = new BriarheartBurger();
+            Assert.Equal("Briarheart Burger", BB.ToString());
         }
     }
 }
