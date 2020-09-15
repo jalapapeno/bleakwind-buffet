@@ -88,18 +88,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, "Large Aretino Apple Juice")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
-            string expectedSizeName = "Small";
             var AAJ = new ArentinoAppleJuice()
             {
                 Size = size
             };
 
-            if (size == Size.Medium) expectedSizeName = "Medium";
-            if (size == Size.Large) expectedSizeName = "Large";
+            Assert.Equal(AAJ.ToString(), name);
+        }
 
-            string expectedOutput = expectedSizeName + " Aretino Apple Juice";
-
-            Assert.Equal(expectedOutput, name);
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            var AAJ = new ArentinoAppleJuice();
+            Assert.IsAssignableFrom<Drink>(AAJ);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var AAJ = new ArentinoAppleJuice();
+            Assert.IsAssignableFrom<IOrderItem>(AAJ);
         }
     }
 }

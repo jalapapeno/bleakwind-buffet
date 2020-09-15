@@ -105,18 +105,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, "Large Warrior Water")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
-            string expectedSizeName = "Small";
+
             var WW = new WarriorWater()
             {
                 Size = size
             };
-
-            if (size == Size.Medium) expectedSizeName = "Medium";
-            if (size == Size.Large) expectedSizeName = "Large";
-
-            string expectedOutput = expectedSizeName + " Warrior Water";
-
-            Assert.Equal(expectedOutput, name);
+            Assert.Equal(WW.ToString(), name);
+        }
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            var WW = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(WW);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var WW = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(WW);
         }
     }
 }

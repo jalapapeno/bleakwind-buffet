@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class representing a glass of Sailor Soda
     /// </summary>
-    public class SailorSoda
+    public class SailorSoda : Drink, IOrderItem
     {
         /// <summary>
         /// Sets the price based on the size
@@ -106,7 +106,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return size.ToString() + flavor.ToString() + "Sailor Soda";
+            return size.ToString() + " " +  flavor.ToString() + " Sailor Soda";
         }
     }
 }

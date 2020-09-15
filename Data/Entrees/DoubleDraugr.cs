@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class used to represent the Double Draugr sandwich
     /// </summary>
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price (One value)

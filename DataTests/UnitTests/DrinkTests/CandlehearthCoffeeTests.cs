@@ -125,26 +125,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
         public void ShouldReturnCorrectToStringBasedOnSize(bool decaf, Size size, string name)
         {
-            string expectedSizeName = "Small";
-            string expectedOutput;
             var CC = new CandlehearthCoffee()
             {
                 Size = size,
                 Decaf = decaf
             };
-
-            if (size == Size.Medium) expectedSizeName = "Medium";
-            if (size == Size.Large) expectedSizeName = "Large";
-            if(decaf)
-            {
-                expectedOutput = expectedSizeName + " Decaf" + " Candlehearth Coffee";
-            }
-            else
-            {
-                expectedOutput = expectedSizeName + " Candlehearth Coffee";
-            }
-
-            Assert.Equal(expectedOutput, name);
+            Assert.Equal(CC.ToString(), name);
+        }
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            var CC = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<Drink>(CC);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var CC = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<IOrderItem>(CC);
         }
     }
 }

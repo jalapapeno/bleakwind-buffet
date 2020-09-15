@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class representing the Thugs TBone entree
     /// </summary>
-    public class ThugsTBone
+    public class ThugsTBone : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price (One value)

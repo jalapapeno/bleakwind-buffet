@@ -68,18 +68,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Dragonborn Waffle Fries")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
-            string expectedSizeName = "Small";
             var DWF = new DragonbornWaffleFries()
             {
                 Size = size
             };
-
-            if (size == Size.Medium) expectedSizeName = "Medium";
-            if (size == Size.Large) expectedSizeName = "Large";
-
-            string expectedOutput = expectedSizeName + " Dragonborn Waffle Fries";
-
-            Assert.Equal(expectedOutput, name);
+            Assert.Equal(DWF.ToString(), name);
+        }
+        [Fact]
+        public void ShouldBeAssignableToAbstractSideClass()
+        {
+            var DWF = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<Side>(DWF);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var DWF = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<IOrderItem>(DWF);
         }
     }
 }

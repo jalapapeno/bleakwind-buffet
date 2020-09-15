@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class representing a cup of Candlehearth Coffee
     /// </summary>
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee : Drink,IOrderItem
     {
         /// <summary>
         /// Sets the price based on the size
@@ -119,7 +119,7 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             if(decaf)
-                return size.ToString() + " decaf" + " Candlehearth Coffee";
+                return size.ToString() + " Decaf" + " Candlehearth Coffee";
             else
                 return size.ToString() + " Candlehearth Coffee";
         }

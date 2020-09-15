@@ -39,5 +39,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             var TT = new ThugsTBone();
             Assert.Equal("Thugs T-Bone", TT.ToString());
         }
+        [Fact]
+        public void ShouldBeAssignableToAbstractEntreeClass()
+        {
+            var TT = new ThugsTBone();
+            Assert.IsAssignableFrom<Entree>(TT);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var TT = new ThugsTBone();
+            Assert.IsAssignableFrom<IOrderItem>(TT);
+        }
     }
 }

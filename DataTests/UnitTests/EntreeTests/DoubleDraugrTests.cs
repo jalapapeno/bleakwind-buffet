@@ -181,5 +181,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             var DD = new DoubleDraugr();
             Assert.Equal("Double Draugr", DD.ToString());
         }
+        [Fact]
+        public void ShouldBeAssignableToAbstractEntreeClass()
+        {
+            var DD = new DoubleDraugr();
+            Assert.IsAssignableFrom<Entree>(DD);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var DD = new DoubleDraugr();
+            Assert.IsAssignableFrom<IOrderItem>(DD);
+        }
     }
 }

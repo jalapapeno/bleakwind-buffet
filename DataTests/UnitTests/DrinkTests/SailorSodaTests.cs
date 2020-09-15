@@ -125,39 +125,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(SodaFlavor.Watermelon, Size.Large, "Large Watermelon Sailor Soda")]
         public void ShouldHaveCorrectToStringBasedOnSizeAndFlavor(SodaFlavor flavor, Size size, string name)
         {
-            string expectedSizeName = "Small";
-            string expectedOutput;
             var SS = new SailorSoda()
             {
                 Size = size,
                 Flavor = flavor
             };
-
-            if (size == Size.Medium) expectedSizeName = "Medium";
-            if (size == Size.Large) expectedSizeName = "Large";
-            if (flavor == SodaFlavor.Blackberry)
-            {
-                expectedOutput = expectedSizeName + " Blackberry" + " Sailor Soda";
-            }
-            else if (flavor == SodaFlavor.Watermelon)
-            {
-                expectedOutput = expectedSizeName + " Watermelon" + " Sailor Soda";
-            }
-            else if (flavor == SodaFlavor.Peach)
-            {
-                expectedOutput = expectedSizeName + " Peach" + " Sailor Soda";
-            }
-            else if (flavor == SodaFlavor.Grapefruit)
-            {
-                expectedOutput = expectedSizeName + " Grapefruit" + " Sailor Soda";
-            }
-            else if (flavor == SodaFlavor.Lemon)
-            {
-                expectedOutput = expectedSizeName + " Lemon" + " Sailor Soda";
-            }
-            else
-                expectedOutput = expectedSizeName + " Cherry" + " Sailor Soda";
-            Assert.Equal(expectedOutput, name);
+            Assert.Equal(SS.ToString(), name);
+        }
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            var SS = new SailorSoda();
+            Assert.IsAssignableFrom<Drink>(SS);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var SS = new SailorSoda();
+            Assert.IsAssignableFrom<IOrderItem>(SS);
         }
     }
 }

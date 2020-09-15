@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Class representing the Mad Otar Grits
     /// </summary>
-    public class MadOtarGrits
+    public class MadOtarGrits : Side, IOrderItem
     {
         /// <summary>
         /// Sets the price based on the size
@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns></returns>
         public override string ToString()
         {
-            return size.ToString() + "Mad Otar Grits";
+            return size.ToString() + " Mad Otar Grits";
         }
     }
 }

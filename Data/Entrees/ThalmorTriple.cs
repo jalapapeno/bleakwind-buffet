@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class representing the Thalmor Triple burger
     /// </summary>
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price (One value)

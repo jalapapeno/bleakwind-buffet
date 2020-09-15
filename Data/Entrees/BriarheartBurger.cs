@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class representing the Briarheart Burger
     /// </summary>
-    public class BriarheartBurger
+    public class BriarheartBurger : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price (One value)

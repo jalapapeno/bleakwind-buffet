@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Class representing the Dragonborn Waffle Fries
     /// </summary>
-    public class DragonbornWaffleFries
+    public class DragonbornWaffleFries : Side, IOrderItem
     {
         /// <summary>
         /// Gets the price based on the size
@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns></returns>
         public override string ToString()
         {
-            return size.ToString() + "Dragonborn Waffle Fries";
+            return size.ToString() + " Dragonborn Waffle Fries";
         }
     }
 }

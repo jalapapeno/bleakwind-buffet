@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Class representing the Fried Miraak side
     /// </summary>
-    public class FriedMiraak
+    public class FriedMiraak : Side, IOrderItem
     {
         /// <summary>
         /// Sets the price based on the size
@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns></returns>
         public override string ToString()
         {
-            return size.ToString() + "Fried Miraak";
+            return size.ToString() + " Fried Miraak";
         }
     }
 }

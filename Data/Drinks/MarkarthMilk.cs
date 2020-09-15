@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class representing a glass of Markarth Milk
     /// </summary>
-    public class MarkarthMilk
+    public class MarkarthMilk : Drink, IOrderItem
     {
         /// <summary>
         /// Sets the price based on the size of the drink
@@ -97,7 +97,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return size.ToString() +"Markarth Milk";
+            return size.ToString() +" Markarth Milk";
         }
     }
 }

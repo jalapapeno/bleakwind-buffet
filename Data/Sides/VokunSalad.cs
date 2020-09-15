@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Class representing the Vokun Salad
     /// </summary>
-    public class VokunSalad
+    public class VokunSalad : Side, IOrderItem
     {
         /// <summary>
         /// Sets the price based on the size of the salad
@@ -81,7 +81,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns></returns>
         public override string ToString()
         {
-            return size.ToString() + "Vokun Salad";
+            return size.ToString() + " Vokun Salad";
         }
     }
 }

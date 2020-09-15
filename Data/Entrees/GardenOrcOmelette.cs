@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class representing the Garden Orc Omelette
     /// </summary>
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree, IOrderItem
     {
         /// <summary>
         /// Sets the price (One value)

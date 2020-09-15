@@ -67,18 +67,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Mad Otar Grits")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
-            string expectedSizeName = "Small";
             var MOG = new MadOtarGrits()
             {
                 Size = size
             };
-
-            if (size == Size.Medium) expectedSizeName = "Medium";
-            if (size == Size.Large) expectedSizeName = "Large";
-
-            string expectedOutput = expectedSizeName + " Mad Otar Grits";
-
-            Assert.Equal(expectedOutput, name);
+            Assert.Equal(MOG.ToString(), name);
+        }
+        [Fact]
+        public void ShouldBeAssignableToAbstractSideClass()
+        {
+            var MOG = new MadOtarGrits();
+            Assert.IsAssignableFrom<Side>(MOG);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var MOG = new MadOtarGrits();
+            Assert.IsAssignableFrom<IOrderItem>(MOG);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class for representing ArentinoAppleJuice
     /// </summary>
-    public class ArentinoAppleJuice
+    public class ArentinoAppleJuice : Drink,IOrderItem
     {
         /// <summary>
         /// Sets the price based on the size
@@ -99,7 +99,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return size.ToString() + "Arentino Apple Juice";
+            return size.ToString() + " Aretino Apple Juice";
         }
     }
 }

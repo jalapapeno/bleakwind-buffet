@@ -67,18 +67,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Vokun Salad")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
-            string expectedSizeName = "Small";
             var VS = new VokunSalad()
             {
                 Size = size
             };
-
-            if (size == Size.Medium) expectedSizeName = "Medium";
-            if (size == Size.Large) expectedSizeName = "Large";
-
-            string expectedOutput = expectedSizeName + " Vokun Salad";
-
-            Assert.Equal(expectedOutput, name);
+            Assert.Equal(VS.ToString(), name);
+        }
+        [Fact]
+        public void ShouldBeAssignableToAbstractSideClass()
+        {
+            var VS = new VokunSalad();
+            Assert.IsAssignableFrom<Side>(VS);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var VS = new VokunSalad();
+            Assert.IsAssignableFrom<IOrderItem>(VS);
         }
     }
 }

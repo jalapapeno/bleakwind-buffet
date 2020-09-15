@@ -67,18 +67,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Fried Miraak")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
-            string expectedSizeName = "Small";
             var FM = new FriedMiraak()
             {
                 Size = size
             };
-
-            if (size == Size.Medium) expectedSizeName = "Medium";
-            if (size == Size.Large) expectedSizeName = "Large";
-
-            string expectedOutput = expectedSizeName + " Fried Miraak";
-
-            Assert.Equal(expectedOutput, name);
+            Assert.Equal(FM.ToString(), name);
+        }
+        [Fact]
+        public void ShouldBeAssignableToAbstractSideClass()
+        {
+            var FM = new FriedMiraak();
+            Assert.IsAssignableFrom<Side>(FM);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var FM = new FriedMiraak();
+            Assert.IsAssignableFrom<IOrderItem>(FM);
         }
     }
     

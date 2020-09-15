@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class representing the Philly Poacher entree
     /// </summary>
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price (One value)

@@ -112,5 +112,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             var SS = new SmokehouseSkeleton();
             Assert.Equal("Smokehouse Skeleton", SS.ToString());
         }
+        [Fact]
+        public void ShouldBeAssignableToAbstractEntreeClass()
+        {
+            var SS = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<Entree>(SS);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var SS = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<IOrderItem>(SS);
+        }
     }
 }

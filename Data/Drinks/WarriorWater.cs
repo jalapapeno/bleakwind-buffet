@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class representing a glass of Warrior Water
     /// </summary>
-    public class WarriorWater
+    public class WarriorWater : Drink, IOrderItem
     {
         /// <summary>
         /// Sets the price (Always 0)
@@ -100,7 +100,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return size.ToString() + "Warrior Water";
+            return size.ToString() + " Warrior Water";
         }
     }
 }

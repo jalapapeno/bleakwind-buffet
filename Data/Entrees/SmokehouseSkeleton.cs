@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class representing the Smokehouse Skeleton dish
     /// </summary>
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price (One value)

@@ -213,5 +213,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             var TT = new ThalmorTriple();
             Assert.Equal("Thalmor Triple", TT.ToString());
         }
+        [Fact]
+        public void ShouldBeAssignableToAbstractEntreeClass()
+        {
+            var TT = new ThalmorTriple();
+            Assert.IsAssignableFrom<Entree>(TT);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var TT = new ThalmorTriple();
+            Assert.IsAssignableFrom<IOrderItem>(TT);
+        }
     }
 }

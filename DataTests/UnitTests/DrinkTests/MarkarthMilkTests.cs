@@ -88,18 +88,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, "Large Markarth Milk")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
-            string expectedSizeName = "Small";
-            string expectedOutput;
             var MM = new MarkarthMilk()
             {
                 Size = size,
             };
-
-            if (size == Size.Medium) expectedSizeName = "Medium";
-            if (size == Size.Large) expectedSizeName = "Large";
-            expectedOutput = expectedSizeName + " Markarth Milk";
-
-            Assert.Equal(expectedOutput, name);
+            Assert.Equal(MM.ToString(), name);
+        }
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            var MM = new MarkarthMilk();
+            Assert.IsAssignableFrom<Drink>(MM);
+        }
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var MM = new MarkarthMilk();
+            Assert.IsAssignableFrom<IOrderItem>(MM);
         }
     }
 }
