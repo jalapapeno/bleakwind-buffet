@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="PointOfSale.MenuButtons"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Name="bhbButton" Click="AddBHBToOrder">
+            Briarheart Burger
+        </Button>
+        <Button Name="ddButton" Grid.Row="1" Click="AddDDToOrder">
+            Double Draugr
+        </Button>
+        <Button Name="gooButton" Grid.Row="2" Click="AddGOOToOrder">
+            Garden Orc Omelette
+        </Button>
+        <Button Name="ppButton" Grid.Row="3" Click="AddPPToOrder">
+            Philly Poacher
+        </Button>
+        <Button Name="shsButton" Grid.Row="4" Click="AddSHSToOrder">
+            Smokehouse Skeleton
+        </Button>
+        <Button Name="ttButton" Grid.Row="5" Click="AddTTToOrder">
+            Thalmor Triple
+        </Button>
+        <Button Name="ttbButton" Grid.Row="6" Click="AddTTBToOrder">
+            Thugs T-Bone
+        </Button>
+        <Button Name="dwfButton" Grid.Column="1" Click="AddDWFToOrder">
+            Dragonborn Waffle Fries
+        </Button>
+        <Button Name="fmButton" Grid.Row="1" Grid.Column="1" Click="AddFMToOrder">
+            Fried Miraak
+        </Button>
+        <Button Name="mogButton" Grid.Row="2" Grid.Column="1" Click="AddMOGToOrder">
+            Mad Otar Grits
+        </Button>
+        <Button Name="vsButton" Grid.Row="3" Grid.Column="1" Click="AddVSToOrder">
+            Vokun Salad
+        </Button>
+        <Button Name="aajButton" Grid.Column="2" Click="AddAAJToOrder">
+            Aretino Apple Juice
+        </Button>
+        <Button Name="ccButton" Grid.Row="1" Grid.Column="2" Click="AddCCToOrder">
+            Candlehearth Coffee
+        </Button>
+        <Button Name="mmButton" Grid.Row="2" Grid.Column="2" Click="AddMMToOrder">
+            Markarth Milk
+        </Button>
+        <Button Name="ssButton" Grid.Row="3" Grid.Column="2" Click="AddSSToOrder">
+            Sailor Soda
+        </Button>
+        <Button Name="wwButton" Grid.Row="4" Grid.Column="2" Click="AddWWToOrder">
+            Warrior Water
+        </Button>
+        <ListView Name="orderContents" Grid.Column="3" Grid.RowSpan="4"/>
+        <Border Name="containerBorder" Grid.ColumnSpan="4" Grid.RowSpan="8"></Border>
+    </Grid>
+</UserControl>
